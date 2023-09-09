@@ -11,7 +11,7 @@ import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "/home";
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -99,8 +99,8 @@ class _HeaderComponentPageState extends State<HeaderComponentPage> {
         Expanded(
           child: Column(
             children: [
-              Text("$userName", style: Theme.of(context).textTheme.titleLarge),
-              Text("$email", style: Theme.of(context).textTheme.bodySmall),
+              Text(userName, style: Theme.of(context).textTheme.titleLarge),
+              Text(email, style: Theme.of(context).textTheme.bodySmall),
               Divider(
                 height: 20,
                 color: Colors.grey,
@@ -170,7 +170,7 @@ class _ArriveButtonState extends State<ArriveButton> {
     final response = await http.post(CHECK_ARRIVE_USER_URL, headers: {
       "Content-Type": "application/json",
       "Accept": "application/json",
-      'Authorization': 'Bearer ${token}',
+      'Authorization': 'Bearer $token',
     });
 
     showDialog(
@@ -245,14 +245,14 @@ class CardDashBoard extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    '$formattedTime',
+                    formattedTime,
                     style: Theme.of(context)
                         .textTheme
                         .displaySmall!
                         .copyWith(color: Colors.white),
                   ),
                   Text(
-                    '$formatted',
+                    formatted,
                     style: Theme.of(context)
                         .textTheme
                         .titleLarge!
@@ -269,7 +269,7 @@ class CardDashBoard extends StatelessWidget {
 }
 
 class NavigationBarComponent extends StatefulWidget {
-  NavigationBarComponent(this._currentNavigation, {super.key});
+  const NavigationBarComponent(this._currentNavigation, {super.key});
 
   final VoidCallback _currentNavigation;
   @override

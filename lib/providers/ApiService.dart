@@ -16,9 +16,9 @@ class ApiService {
       });
       if (response.statusCode == 200) {
         final List result = jsonDecode(response.body);
-        List<Presence> list_result =
+        List<Presence> listResult =
             result.map((e) => Presence.fromJosn(e)).toList();
-        return list_result;
+        return listResult;
       } else {
         throw Exception(response.reasonPhrase);
       }

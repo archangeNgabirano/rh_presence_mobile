@@ -38,7 +38,7 @@ class _LogoutComponetState extends State<LogoutComponet> {
         headers: {
           "Content-Type": "application/json",
           "Accept": "application/json",
-          "Authorization": "Bearer ${token}"
+          "Authorization": "Bearer $token"
         },
         encoding: Encoding.getByName("utf-8"),
       );

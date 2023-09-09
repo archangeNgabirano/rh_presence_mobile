@@ -2,8 +2,8 @@
 const IP_ADDRESS = "http://192.168.77.107:8000/api/";
 
 Uri makeUrl(String url) {
-  String full_url = IP_ADDRESS + url;
-  return Uri.parse(full_url);
+  String fullUrl = IP_ADDRESS + url;
+  return Uri.parse(fullUrl);
 }
 
 const requestHeaders = {};

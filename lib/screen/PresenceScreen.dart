@@ -9,26 +9,26 @@ class PresenceScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     //ApiService.getListePresence();
-    final _data = ref.refresh(serviceDataProvider);
+    final data = ref.refresh(serviceDataProvider);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Historique des presences"),
+        title: const Text("Historique des presences"),
       ),
-      body: _data.when(
-        data: (_elements) {
+      body: data.when(
+        data: (elements) {
           return Column(
             children: [
               Expanded(
                 child: ListView.builder(
-                  itemCount: _elements.length,
-                  itemBuilder: (ctx, index) => ItemPresence(_elements[index]),
+                  itemCount: elements.length,
+                  itemBuilder: (ctx, index) => ItemPresence(elements[index]),
                 ),
               ),
             ],
           );
         },
         error: (err, s) => Text(err.toString()),
-        loading: () => Center(
+        loading: () => const Center(
           child: CircularProgressIndicator(),
         ),
       ),
@@ -51,15 +51,15 @@ class ItemPresence extends StatelessWidget {
         title: Center(child: Text('Date :  ${presence.getCreated_at}')),
         subtitle: Row(
           children: [
-            Icon(Icons.access_alarm),
+            const Icon(Icons.access_alarm),
             Text('${presence.getDate_in} '),
-            Spacer(),
-            Icon(Icons.blind),
+            const Spacer(),
+            const Icon(Icons.blind),
             Text('${presence.getDate_out} '),
           ],
         ),
         trailing: Container(
-          color: Color.fromARGB(255, 154, 148, 163),
+          color: const Color.fromARGB(255, 154, 148, 163),
           child: Text("${presence.time_per_day} "),
         ),
       ),

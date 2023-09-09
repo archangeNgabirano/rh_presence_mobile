@@ -12,7 +12,7 @@ class ApiAdress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("SETTING API ADDRESS")),
+      appBar: AppBar(title: const Text("SETTING API ADDRESS")),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Center(
@@ -57,8 +57,8 @@ class ApiAdress extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton.icon(
                   onPressed: saveIpAdresse,
-                  icon: Icon(Icons.save),
-                  label: Text("Sauvegarder"),
+                  icon: const Icon(Icons.save),
+                  label: const Text("Sauvegarder"),
                 ),
               )
             ],

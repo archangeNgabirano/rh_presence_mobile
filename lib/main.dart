@@ -19,13 +19,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginScreen(),
+      home: const LoginScreen(),
       initialRoute: (token != null && token!.isNotEmpty)
           ? HomeScreen.routeName
           : LoginScreen.routeName,
       routes: {
-        HomeScreen.routeName: (_) => HomeScreen(),
-        LoginScreen.routeName: (_) => LoginScreen(),
+        HomeScreen.routeName: (_) => const HomeScreen(),
+        LoginScreen.routeName: (_) => const LoginScreen(),
         ApiAdress.routeName: (_) => ApiAdress(),
       },
     );

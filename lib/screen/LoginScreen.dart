@@ -61,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
         String token = jsonResponse["token"];
         print("token : $token");
         var user = jsonResponse["user"];
-        User x = new User.fromJosn(user);
+        User x = User.fromJosn(user);
         var json = x.toJson();
         await UserSimplePeference.setUserName(x.name);
         await UserSimplePeference.setUserEmail(x.email);
@@ -225,7 +225,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           print('Please');
                           Navigator.of(context).pushNamed(ApiAdress.routeName);
                         },
-                        child: Text(
+                        child: const Text(
                           'Change',
                           style: TextStyle(
                             color: Color(0xFF755DC1),
