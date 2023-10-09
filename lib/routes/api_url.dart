@@ -1,5 +1,5 @@
 //const IP_ADDRESS = "http://10.250.1.75:8000/api/";
-const IP_ADDRESS = "http://192.168.77.107:8000/api/";
+const IP_ADDRESS = "http://172.20.176.1:8000/api/";
 
 Uri makeUrl(String url) {
   String fullUrl = IP_ADDRESS + url;

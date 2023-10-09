@@ -27,17 +27,17 @@ class Presence {
   }
 
   String get time_per_day {
-    dynamic h = 0.0;
-    var m = 0.0;
-    var s = 0.0;
+    dynamic heure = 0.0;
+    var minute = 0.0;
+    var seconde = 0.0;
     if (hours_per_day != null) {
       var x = 3602;
       // hours_per_day!;
-      h = x / 3600;
-      m = ((x - (h * 3600)) / 60);
-      s = ((x - (h * 3600)) % 60);
+      heure = x / 3600;
+      minute = ((x - (heure * 3600)) / 60);
+      seconde = ((x - (heure * 3600)) % 60);
     }
-    return "${h.toStringAsFixed(0)} : ${m.toStringAsFixed(0)} : ${s.toStringAsFixed(0)}";
+    return "${heure.toStringAsFixed(0)} : ${minute.toStringAsFixed(0)} : ${seconde.toStringAsFixed(0)}";
   }
 
   String get getDate_in {

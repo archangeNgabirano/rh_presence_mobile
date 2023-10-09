@@ -2,12 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:rh_presence_mobile/routes/api_url.dart';
+import 'package:rh_presence_mobile/screen/Conge.dart';
 import 'package:rh_presence_mobile/screen/PresenceScreen.dart';
 import 'package:rh_presence_mobile/shared_preference/shared_preference_data.dart';
 import 'package:rh_presence_mobile/widget/logout_componet.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = "/home";
@@ -45,6 +44,9 @@ class _HomeScreenState extends State<HomeScreen> {
         // child = Text("${l.token}");
         break;
       case 2:
+        child = DatePickerWidget();
+        break;
+      case 3:
         child = LogoutComponet();
         break;
     }
@@ -57,11 +59,13 @@ class _HomeScreenState extends State<HomeScreen> {
         iconSize: 35,
         items: const [
           BottomNavigationBarItem(
+            backgroundColor: Color.fromARGB(255, 6, 110, 5),
             icon: Icon(Icons.home),
             label: "Accueil",
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.access_time), label: "Orange"),
+              icon: Icon(Icons.access_time), label: "Présences"),
+          BottomNavigationBarItem(icon: Icon(Icons.book), label: "Congés"),
           BottomNavigationBarItem(
             icon: Icon(Icons.logout),
             label: "Déconnexion",
@@ -99,20 +103,23 @@ class _HeaderComponentPageState extends State<HeaderComponentPage> {
         Expanded(
           child: Column(
             children: [
-              Text(userName, style: Theme.of(context).textTheme.titleLarge),
-              Text(email, style: Theme.of(context).textTheme.bodySmall),
+              Text('Minani John',
+                  style: Theme.of(context).textTheme.titleLarge),
+              Text('minani.jonh@sopec.com',
+                  style: Theme.of(context).textTheme.bodySmall),
               Divider(
                 height: 20,
-                color: Colors.grey,
+                color: const Color.fromARGB(255, 6, 110, 5),
               )
             ],
           ),
         ),
         CircleAvatar(
           radius: 50,
+          backgroundColor: Color.fromARGB(255, 6, 110, 5),
           child: Icon(
             Icons.person_2,
-            size: 100,
+            size: 50,
           ),
         )
       ],
@@ -167,11 +174,6 @@ class _ArriveButtonState extends State<ArriveButton> {
 
   void setArrverUser(context) async {
     print(token);
-    final response = await http.post(CHECK_ARRIVE_USER_URL, headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json",
-      'Authorization': 'Bearer $token',
-    });
 
     showDialog(
         context: context,
@@ -187,6 +189,7 @@ class _ArriveButtonState extends State<ArriveButton> {
         onTap: () => setArrverUser(context),
         child: Center(
           child: CircleAvatar(
+            backgroundColor: Color.fromARGB(255, 6, 110, 5),
             radius: 120,
             child: Icon(Icons.roofing_rounded, size: 120),
           ),
@@ -214,9 +217,9 @@ class CardDashBoard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         gradient: const LinearGradient(
           colors: [
-            Colors.blue,
-            Colors.black,
-            Colors.purple,
+            Color.fromARGB(255, 198, 239, 92),
+            Color.fromARGB(255, 0, 0, 0),
+            Color.fromARGB(255, 4, 101, 1),
           ],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
@@ -281,18 +284,12 @@ class _NavigationBarComponentState extends State<NavigationBarComponent> {
 
   @override
   Widget build(BuildContext context) {
-    Widget child = FlutterLogo();
     switch (index) {
       case 0:
-        child = FlutterLogo();
         break;
       case 1:
-        child = FlutterLogo(
-          textColor: Colors.black12,
-        );
         break;
       case 2:
-        child = FlutterLogo(textColor: Colors.red);
         break;
     }
     return BottomNavigationBar(
@@ -304,7 +301,7 @@ class _NavigationBarComponentState extends State<NavigationBarComponent> {
         });
       },
       // Colors.black,
-      backgroundColor: Color.fromARGB(255, 97, 111, 122),
+      backgroundColor: Color.fromARGB(255, 6, 110, 5),
       items: const [
         BottomNavigationBarItem(
           icon: Icon(

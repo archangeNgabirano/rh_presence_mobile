@@ -35,6 +35,10 @@ class _LoginScreenState extends State<LoginScreen> {
     prefs = await SharedPreferences.getInstance();
   }
 
+  void logsanspass() {
+    Navigator.of(context).popAndPushNamed(HomeScreen.routeName);
+  }
+
   void longinUser() async {
     print("${_emailController.text} + ${_passController.text}");
     String email = _emailController.text;
@@ -83,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Padding(
               padding: const EdgeInsets.only(left: 15, top: 15),
               child: Image.asset(
-                "assets/images/vector-1.png",
+                "assets/images/sopec.jpg",
                 width: double.infinity,
                 height: 457 / 2,
               ),
@@ -100,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   const Text(
                     'Log In',
                     style: TextStyle(
-                      color: Color(0xFF755DC1),
+                      color: Color.fromARGB(255, 6, 110, 5),
                       fontSize: 27,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w500,
@@ -121,7 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: const InputDecoration(
                       labelText: 'Email',
                       labelStyle: TextStyle(
-                        color: Color(0xFF755DC1),
+                        color: Color.fromARGB(255, 6, 110, 5),
                         fontSize: 15,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
@@ -130,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                         borderSide: BorderSide(
                           width: 1,
-                          color: Color(0xFF837E93),
+                          color: Color.fromARGB(255, 0, 59, 19),
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
@@ -157,7 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: const InputDecoration(
                       labelText: 'Password',
                       labelStyle: TextStyle(
-                        color: Color(0xFF755DC1),
+                        color: Color.fromARGB(255, 2, 177, 32),
                         fontSize: 15,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
@@ -166,14 +170,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                         borderSide: BorderSide(
                           width: 1,
-                          color: Color(0xFF837E93),
+                          color: Color.fromARGB(255, 6, 110, 5),
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                         borderSide: BorderSide(
                           width: 1,
-                          color: Color(0xFF9F7BFF),
+                          color: Color.fromARGB(255, 6, 110, 5),
                         ),
                       ),
                     ),
@@ -187,9 +191,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       width: 329,
                       height: 56,
                       child: ElevatedButton(
-                        onPressed: longinUser,
+                        onPressed: logsanspass,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF9F7BFF),
+                          backgroundColor: Color.fromARGB(255, 6, 110, 5),
                         ),
                         child: const Text(
                           'Sign In',
@@ -228,7 +232,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: const Text(
                           'Change',
                           style: TextStyle(
-                            color: Color(0xFF755DC1),
+                            color: Color.fromARGB(255, 6, 110, 5),
                             fontSize: 13,
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w500,

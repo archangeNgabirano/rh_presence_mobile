@@ -12,6 +12,7 @@ class PresenceScreen extends ConsumerWidget {
     final data = ref.refresh(serviceDataProvider);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 6, 110, 5),
         title: const Text("Historique des presences"),
       ),
       body: data.when(
